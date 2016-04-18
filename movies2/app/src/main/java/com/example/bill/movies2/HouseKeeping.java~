@@ -26,5 +26,5 @@ public class HouseKeeping {
         return "http://image.tmdb.org/t/p/w" + Integer.toString(width) + fileName;
     }
 
-    public static final String API_KEY = "";
+    public static final String API_KEY = "abc7a0e8dc7f0b0d4f88c38f73a3fcb3";
 }
