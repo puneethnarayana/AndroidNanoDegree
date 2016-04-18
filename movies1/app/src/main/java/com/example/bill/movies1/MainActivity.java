@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     final static String TOP_VOTE_LIST = "topVoteList";
     String poplarityURL;
     String ratingURL;
-   String API_KEY = "";
+    String API_KEY = "abc7a0e8dc7f0b0d4f88c38f73a3fcb3";
 
     @Override
     protected void onStart() {
