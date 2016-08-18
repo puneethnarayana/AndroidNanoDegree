@@ -5,8 +5,8 @@
     android:layout_height="72dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingStart="@dimen/item_quote_layout_padding"
+    android:paddingEnd="@dimen/item_quote_layout_padding"
     android:background="@drawable/touch_selector_dark"
     >
   <TextView
@@ -28,7 +28,8 @@
         style="@style/BidPriceTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="10sp"
+        android:paddingStart="@dimen/item_quote_bid_price_padding"
+        android:paddingEnd="@dimen/item_quote_bid_price_padding"
         tools:text="@string/example_bid_price"
         />
     <TextView
@@ -37,8 +38,8 @@
         style="@style/PercentChangeTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
+        android:paddingStart="@dimen/item_quote_bid_change_padding"
+        android:paddingEnd="@dimen/item_quote_bid_change_padding"
         tools:text="@string/example_bid_change"
         />
   </LinearLayout>
