@@ -11,4 +11,12 @@
     http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
     <dimen name="widget_margin">8dp</dimen>
+
+
+
+    <dimen name="item_quote_layout_padding">16dp</dimen>
+
+    <dimen name="item_quote_bid_price_padding">10sp</dimen>
+
+    <dimen name="item_quote_bid_change_padding">3dp</dimen>
 </resources>
