@@ -6,9 +6,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.puneeth.Joker;
 import com.puneeth.presentjokes.JokePresenter;
 
 public class MainActivity extends ActionBarActivity {
@@ -42,18 +42,34 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    public void tellJoke(View view) {
-//
+    public void tellTheJoke(View view) {
+        getAndDisplayJokeFromGCE();
+    }
+
+//    private void initialToastJokeTeler(){
 //        Joker myJoker = new Joker();
 //        Toast.makeText(this, myJoker.getJoke(), Toast.LENGTH_SHORT).show();
 //    }
 
-    public void launchJokePresenterActivity(View view) {
-        Intent intent = new Intent(this, JokePresenter.class);
-        Joker myJoker = new Joker();
-        String joke = myJoker.getJoke();
-        intent.putExtra(JokePresenter.JOKE_KEY, joke);
-        startActivity(intent);
-    }
+//    private void launchJokePresenterActivity(View view) {
+//        Intent intent = new Intent(this, JokePresenter.class);
+//        Joker myJoker = new Joker();
+//        String joke = myJoker.getJoke();
+//        intent.putExtra(JokePresenter.JOKE_KEY, joke);
+//        startActivity(intent);
+//    }
 
+    private void getAndDisplayJokeFromGCE() {
+
+        new JokerAsyncTask() {
+            @Override
+            protected void onPostExecute(String s) {
+                if (s != null) {
+                    startActivity(JokePresenter.launchIntent(MainActivity.this, s));
+                } else {
+                    Toast.makeText(MainActivity.this, "Houston we've a problem!", Toast.LENGTH_LONG).show();
+                }
+            }
+        }.execute();
+    }
 }

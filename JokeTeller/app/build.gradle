@@ -14,19 +14,32 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        free {
+            applicationId = "com.udacity.gradle.builditbigger.free"
+            versionName "1.0-free"
+        }
+        paid {
+            applicationId = "com.udacity.gradle.builditbigger.paid"
+            versionName "1.0-full"
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
-    compile project(':javajoker')
     compile project(':presentjokes')
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.google.android.gms:play-services-ads:10.0.0'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile project(path: ':backend', configuration: 'android-endpoints')
 }
